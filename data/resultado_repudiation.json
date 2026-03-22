@@ -1,0 +1,21 @@
+{
+  "cenario": "Repudiation (R1/R3)",
+  "stride": "R",
+  "ativo": "Logs e trilha de auditoria",
+  "execucoes": 1,
+  "baseline": {
+    "adulteracao_detectada": false,
+    "detection_rate": "0%"
+  },
+  "com_controles": {
+    "adulteracao_detectada": true,
+    "reason": "Hash adulterado na entrada 1",
+    "detection_rate": "100%"
+  },
+  "controles_aplicados": [
+    "Audit log append-only com hash encadeado SHA-256",
+    "Registro de todos os eventos com actor, timestamp e prev_hash",
+    "Verificação de integridade da chain completa"
+  ],
+  "achado_cientifico": "Hash encadeado detecta qualquer adulteração no log, pois modificar uma entrada invalida todos os hashes subsequentes."
+}

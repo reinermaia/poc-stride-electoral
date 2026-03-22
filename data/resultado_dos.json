@@ -1,0 +1,25 @@
+{
+  "cenario": "Denial of Service (D1/D2)",
+  "stride": "D",
+  "ativo": "API Gateway + pipeline de transmissão",
+  "execucoes": 30,
+  "baseline_sem_ataque": {
+    "disponibilidade": "100%",
+    "latencia_p50_ms": 2.43,
+    "latencia_mean_ms": 2.89,
+    "requisicoes_ataque": 0
+  },
+  "sob_ataque_sem_rate_limiting": {
+    "disponibilidade": "100%",
+    "latencia_p50_ms": 15.35,
+    "latencia_mean_ms": 16.02,
+    "requisicoes_ataque": 8625,
+    "degradacao_latencia": "454.5%"
+  },
+  "achado_cientifico": "DoS não derruba a API mas degrada latência em 454%, impactando diretamente a janela operacional de transmissão eleitoral.",
+  "controles_aplicados": [
+    "Rate limiting 60/minute no /upload",
+    "JWT validation bloqueia flooding autenticado",
+    "Separação de endpoints críticos"
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "cenario": "Information Disclosure (I1/I3)",
+  "stride": "I",
+  "ativo": "Pre-signed URL / arquivo de resultados",
+  "execucoes": 5,
+  "baseline": {
+    "reutilizacao_token": "aceito",
+    "multiplas_reutilizacoes": "aceito",
+    "detection_rate": "0%"
+  },
+  "com_controles": {
+    "actor_diferente": "bloqueado - Token pertence a outro actor",
+    "token_revogado": "bloqueado - Token não encontrado",
+    "token_expirado": "bloqueado - Token expirado",
+    "detection_rate": "100%"
+  },
+  "controles_aplicados": [
+    "TTL curto (10s) nas URLs pré-assinadas",
+    "Binding de actor — token válido apenas para o emissor",
+    "One-time use — token revogado após primeiro uso"
+  ],
+  "achado_cientifico": "TTL longo sem binding permite reutilização irrestrita. A combinação TTL curto + binding + one-time use elimina todos os vetores de replay."
+}

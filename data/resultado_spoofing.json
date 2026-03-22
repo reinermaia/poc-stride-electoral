@@ -1,0 +1,25 @@
+{
+  "cenario": "Spoofing (S1/S2)",
+  "stride": "S",
+  "ativo": "Credenciais e tokens JWT",
+  "execucoes": 30,
+  "baseline": {
+    "upload_sem_token": "accepted",
+    "upload_token_forjado": "accepted",
+    "detection_rate": "0%"
+  },
+  "com_controles": {
+    "upload_sem_token": "401 - Token ausente ou malformado",
+    "upload_token_forjado": "401 - Signature verification failed",
+    "detection_rate": "100%"
+  },
+  "controles_aplicados": [
+    "JWT validation (aud/scope/exp)",
+    "Rejeição de token ausente",
+    "Verificação de assinatura criptográfica"
+  ],
+  "latencia_sem_token_ms": {"p50": 1.07, "p95": 2.25, "p99": 5.82, "mean": 1.38},
+  "latencia_com_token_ms": {"p50": 1.55, "p95": 2.56, "p99": 16.31, "mean": 2.06},
+  "overhead_medio_ms": 0.68,
+  "overhead_percentual_mean": "49%"
+}

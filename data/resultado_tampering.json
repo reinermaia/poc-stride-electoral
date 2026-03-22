@@ -1,0 +1,27 @@
+{
+  "cenario": "Tampering (T1/T3)",
+  "stride": "T",
+  "ativo": "Arquivo de resultados + metadados chain of custody",
+  "execucoes": 30,
+  "baseline": {
+    "hash_invalido": "accepted",
+    "hash_recalculado": "accepted",
+    "detection_rate": "0%"
+  },
+  "com_controles": {
+    "chave_errada": "422 - Assinatura digital inválida",
+    "hash_invalido_sem_assinatura": "422 - Hash inválido",
+    "hash_recalculado_assinatura_atacante": "422 - Assinatura digital inválida",
+    "detection_rate": "100%"
+  },
+  "achado_cientifico": "Hash SHA-256 sozinho é insuficiente — atacante que conhece o algoritmo pode recalcular. Assinatura RSA-2048 fecha essa lacuna.",
+  "controles_aplicados": [
+    "Verificação de hash SHA-256",
+    "Assinatura digital RSA-2048 com chave assimétrica",
+    "Rejeição de payload sem assinatura"
+  ],
+  "latencia_sem_assinatura_ms": {"p50": 2.06, "p95": 2.52, "p99": 5.10, "mean": 2.18},
+  "latencia_com_assinatura_ms": {"p50": 2.28, "p95": 2.85, "p99": 3.02, "mean": 2.29},
+  "overhead_medio_ms": 0.11,
+  "overhead_percentual_mean": "5%"
+}
